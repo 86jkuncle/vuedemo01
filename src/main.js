@@ -9,6 +9,12 @@ import Lo from "./components/Lo"
 import Antd from 'ant-design-vue'
 import Layer from './components/Layer'
 import 'ant-design-vue/dist/antd.css'
+import Login from './components/Login'
+
+import Table from './components/Table'
+import SimpleTable from './components/SimpleTable'
+
+
 
 Vue.use(Antd)
 Vue.use(VueRouter)
@@ -17,7 +23,10 @@ const routes = [
   { path: '/list', component: List },
   {path:'/a',component:Other},
   {path:'/lo',component:Lo},
-  {path:'/layer',component:Layer}
+  {path:'/layer',component:Layer},
+  {path:'/login',component:Login},
+  {path:'/table',component:Table},
+  {path:'/stable',component:SimpleTable}
 ]
 
 const router = new VueRouter({

@@ -21,7 +21,7 @@
     mounted() {
       let _this = this;
       axios.get('/list',{
-        baseURL:"http://localhost/"
+        baseURL:"http://192.168.1.4:5460/demo"
       })
         .then(function (response) {
           console.log(response.data)

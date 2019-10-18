@@ -1,13 +1,13 @@
 <template>
   <a-table :columns="columns"
-           :rowKey="record => record.login.uuid"
+           :rowKey="record=>record.id"
            :dataSource="data"
            :pagination="pagination"
            :loading="loading"
            @change="handleTableChange"
   >
     <template slot="name" slot-scope="name">
-      {{name.first}} {{name.last}}
+      {{name}}
     </template>
   </a-table>
 </template>
@@ -62,19 +62,8 @@
       fetch (params = {}) {
         console.log('params:', params);
         this.loading = true
-        /*
-        axios.get('/list')
-          .then(function (response) {
-            // handle success
-            console.log(response);
-          })
-          .catch(function (error) {
-            // handle error
-            console.log(error);
-          });
-        */
         reqwest({
-          url: 'http://localhost/list',
+          url: 'http://localhost:5460/demo/list',
           method: 'get',
           data: {
             results: 10,
@@ -85,8 +74,10 @@
           const pagination = { ...this.pagination };
           // Read total count from server
           // pagination.total = data.totalCount;
+          console.log(data);
           pagination.total = 200;
           this.loading = false;
+          //服务端必须要包含results
           this.data = data.results;
           this.pagination = pagination;
         });
